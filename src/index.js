@@ -1,5 +1,5 @@
 import {loadHome} from './home';
-import {loadMenu} from './menu';
+import {projectForm} from './projectForm.js';
 import {loadAbout} from './about';
 import "./styles.css";
 
@@ -9,13 +9,10 @@ function setActiveTab(tab){
     content.appendChild(tab());
 }
 
-function initWebsite(){
-    const buttons = document.querySelectorAll('nav button');
-
-    buttons[0].addEventListener('click', ()=> setActiveTab(loadHome));
-    buttons[1].addEventListener('click', ()=> setActiveTab(loadMenu));
-    buttons[2].addEventListener('click', ()=> setActiveTab(loadAbout));
-
+function initWebsite() {
+    document.addEventListener('DOMContentLoaded', () => {
+        projectForm();  
+    });
     setActiveTab(loadHome);
 }
 

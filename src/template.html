@@ -3,18 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>restautrant-page</title>
+    <title>to-do</title>
 <body>
-    <header>
-        <nav>
-            <button>home</button>
-            <button>Menu</button>
-            <button>About</button>
-        </nav>
-        
-    </header>
+   <div class="wrapper">
+        <div class="box header">What to do?</div>
 
-    <div id="content"></div>
+        <div class="box sidebar">
+            <div class="sidebar-header">
+                <h2>Projects</h2>
+                <button id="addProjectBtn">+</button>
+            </div>
+
+        </div>
+
+        <div class="box content">
+            <h2>Task</h2>
+
+        </div>
+        <div class="box footer">Footer</div>
+
+
+   </div>
+
+   <div id="addProjectFormContainer">
+        <div class="form-content">
+            <div class="form-header">
+                <h2>Add New Project</h2>
+                <button type="button" id="closeFormBtn" class="close-button">x</button>
+            </div>
+        </div>
+   </div>
     
 </body>
 </html>
