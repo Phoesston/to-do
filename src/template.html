@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>to-do</title>
+</head>
 <body>
    <div class="wrapper">
-        <div class="box header">What to do?</div>
+        <div class="box header"><h1>What to do?</h1></div>
 
         <div class="box sidebar">
             <div class="sidebar-header">
@@ -25,14 +26,23 @@
 
    </div>
 
-   <div id="addProjectFormContainer">
-        <div class="form-content">
-            <div class="form-header">
-                <h2>Add New Project</h2>
-                <button type="button" id="closeFormBtn" class="close-button">x</button>
+   <!--Pop up window html code-->
+   <div id="add-project-window-container" style="display: none;">
+        <div id="add-project-window">
+            <label class="add-project-label" for="project-name">Project Name</label>
+            <input type="text" class="add-project-input" placeholder="Project Name">
+
+            <label for="Project-description" class="add-project-label">Project Description</label>
+            <textarea name="description" id="Project-description" placeholder="Project Description"></textarea>
+
+            <div id="add-project-window-buttons">
+                <button id="add-project-add">Add</button>
+                <button id="add-project-cancel">Cancel</button> 
+
             </div>
         </div>
    </div>
     
+   <script src="index.js"></script>
 </body>
 </html>

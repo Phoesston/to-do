@@ -1,18 +1,13 @@
 export function projectForm(){
-   const addBtn = document.getElementById('addProjectBtn');
-   const formContainer = document.getElementById('addProjectFormContainer');
-   const closeBtn = document.getElementById('closeFormBtn');
+    const addButton = document.getElementById("addProjectBtn");
+    const formContainer = document.getElementById("add-project-window-container");
+    const cancelButton = document.getElementById("add-project-cancel");
 
-   if(!addBtn || !formContainer || !closeBtn){
-    console.warn('Project form elements not found');
-    return;
-   }
+    addButton.addEventListener("click", () => {
+        formContainer.classList.toggle('show');
+    });
 
-   addBtn.addEventListener('click', () => {
-    formContainer.classList.remove('hidden');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    formContainer.classList.add('hidden');
-  });
+    cancelButton.addEventListener("click", () => {
+        formContainer.style.display = "none"
+    });
 }

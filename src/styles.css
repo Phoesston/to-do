@@ -95,9 +95,31 @@ html, body {
 
 .content {
     grid-area: content;
-    background-color: #b8ddca; /* Fresh Mint */
+    background-color: #a5e8eb; /* Fresh Mint */
     color: white; /* Dark Green */
 }
 
+
+
+#add-project-window-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+  display: flex;
+  justify-content: center;  /* horizontal center */
+  align-items: center;      /* vertical center */
+  z-index: 1000;            /* on top */
+}
+
+#add-project-window {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
 
 
