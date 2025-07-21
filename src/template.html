@@ -21,27 +21,27 @@
             <h2>Task</h2>
 
         </div>
-        <div class="box footer">Footer</div>
+        <div class="box footer">Made by Phoesston</div>
 
 
    </div>
 
    <!--Pop up window html code-->
-   <div id="add-project-window-container" style="display: none;">
-        <div id="add-project-window">
-            <label class="add-project-label" for="project-name">Project Name</label>
-            <input type="text" class="add-project-input" placeholder="Project Name">
+   <div id="modal" class="modal active">
+        <div id="modal-inner" class="modal-inner">
 
-            <label for="Project-description" class="add-project-label">Project Description</label>
-            <textarea name="description" id="Project-description" placeholder="Project Description"></textarea>
+            <div class="modal-form"></div>
+            
 
-            <div id="add-project-window-buttons">
-                <button id="add-project-add">Add</button>
-                <button id="add-project-cancel">Cancel</button> 
+            <div id="modal-buttons">
+                <button id="submit-button">Submit</button>
+                <button id="cancel-button">Cancel</button> 
 
             </div>
+
         </div>
    </div>
+   <div id="overlay"></div>
     
    <script src="index.js"></script>
 </body>
