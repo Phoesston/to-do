@@ -1,3 +1,5 @@
+@import url('./modalProject.css');
+
 /* General styles */
 html, body {
     margin: 0;
@@ -21,7 +23,7 @@ html, body {
         "sidebar content content"
         "footer  footer  footer";
     background-color: #fff;
-    color: #444;
+    color: var(--word-color);
 }
 
 
@@ -100,6 +102,32 @@ html, body {
     border-radius: 10px;
     padding: 24px;
     
+}
+
+#modal-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    gap: 1rem; /* space between buttons */
+    padding: 0 1rem;
+    padding-bottom: 3rem;
+    border-radius: 0 0 8px 8px; /* rounded bottom corners */
+}
+
+#modal-buttons button {
+  flex: 1 1 120px; /* buttons grow to fill space but keep min width */
+  max-width: 150px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--word-color);
+  background-color: aquamarine; /* slightly darker blue */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 

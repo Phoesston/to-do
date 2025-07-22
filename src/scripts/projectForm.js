@@ -1,4 +1,8 @@
 export function projectForm(){
+    const modalHeader = document.querySelector('.modal-header');
+    modalHeader.innerHTML = `
+        <h2>Create New Project</h2>`;
+
     const modalWindow = document.querySelector('.modal-form');
     modalWindow.innerHTML = `
         <div class="project-name">

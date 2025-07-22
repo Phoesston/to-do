@@ -1,3 +1,5 @@
+import { projectForm } from "./projectForm";
+
 export function modal(){
     const addProjectButton = document.getElementById('addProjectBtn');
     const submitButton = document.getElementById("submit-button");
@@ -7,6 +9,7 @@ export function modal(){
 
     addProjectButton.addEventListener("click", () => {
         modalWindow.classList.add('active');
+        //projectForm();
         
     });
 
