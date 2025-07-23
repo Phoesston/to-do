@@ -1,3 +1,4 @@
+import { createProject } from "./createProject";
 import { projectForm } from "./projectForm";
 
 export function modal(){
@@ -11,6 +12,10 @@ export function modal(){
         modalWindow.classList.add('active');
         //projectForm();
         
+    });
+
+    submitButton.addEventListener("click", () => {
+        createProject();
     });
 
     cancelButton.addEventListener("click", () => {
