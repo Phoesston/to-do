@@ -1,6 +1,7 @@
 @import url('./modalProject.css');
 @import url('./sideMenu.css');
 @import url('variables.css');
+@import url('contentStyles.css');
 
 * {
   box-sizing: border-box;
@@ -36,6 +37,14 @@ body, html {
   background-color: var(--background-color);
   padding: 1rem;
   border-right: 1px solid var(--input-border);
+}
+
+.content{
+  grid-area: content();
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-right: 1px solid var(--input-border);
+  
 }
 
 .footer {

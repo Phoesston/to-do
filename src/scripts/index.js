@@ -1,7 +1,4 @@
 import { modal} from "./modal";
-import { projectForm } from "./projectForm";
-import { Todo } from './todo.js';
-import { createProject } from "./createProject.js";
 import "../styles/styles.css";
 
 //const myProject = new Project('My Tasks');
@@ -29,5 +26,4 @@ import "../styles/styles.css";
 
 document.addEventListener("DOMContentLoaded", () => {
   modal();
-  projectForm();
 });

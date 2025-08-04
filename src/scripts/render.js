@@ -1,9 +1,10 @@
 import { allProjects} from "./createProject";
 
-let selectedIndex = null;
+export let selectedIndex = null;
 
 function handleProjectSelection(index, element) {
     const allItems = document.querySelectorAll('.project-item');
+    const taskControls = document.getElementById('task-button-div');
 
     if (selectedIndex === index) {
         // Deselect if same project is clicked again
@@ -35,5 +36,24 @@ export function renderProjectList(){
         });
 
         list.appendChild(item);
+    });
+}
+
+export function renderTaskList(todos){
+    const taskContainer = document.getElementById("task-list");
+    taskContainer = "";
+
+    todos.forEach((todo, idx) => {
+        const taskDiv = document.createElement("div");
+        taskDiv.classList.add("task-item");
+
+        taskDiv.innerHTML = `
+            <h3>${todo.title}</h3>
+            <p>${todo.description || ""}</p>
+            <p>Due: ${todo.dueDate || "No date"}</p>
+            <p>Priority: ${todo.priority}</p>
+        `;
+
+        taskContainer.appendChild(taskDiv);
     });
 }
