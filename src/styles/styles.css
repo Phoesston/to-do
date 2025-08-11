@@ -2,6 +2,9 @@
 @import url('./sideMenu.css');
 @import url('variables.css');
 @import url('contentStyles.css');
+@import url('task.css');
+@import url('modalTask.css');
+@import url('taskList.css');
 
 * {
   box-sizing: border-box;
@@ -46,6 +49,7 @@ body, html {
   border-right: 1px solid var(--input-border);
   
 }
+
 
 .footer {
   grid-area: footer;

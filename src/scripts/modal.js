@@ -1,10 +1,14 @@
 import { createProject } from "./createProject";
 import { projectForm } from "./projectForm";
+import { getSelectedProjectIndex } from "./render";
+import { allProjects} from "./createProject";
+import { renderTaskList } from "./render";
 
 import { taskForm } from "./taskForm";
 import { createTask } from "./createTask";
 
-import { selectedIndex } from "./render";
+
+let currentModalType = null;
 
 export function modal(){
     const addProjectButton = document.getElementById('add-project');
@@ -20,13 +24,8 @@ export function modal(){
         modalWindow.classList.add('active');
         overlay.classList.add('active');
         projectForm();
-
-        submitButton.onclick = () => {
-             createProject();
-
-            modalWindow.classList.remove('active');
-            overlay.classList.remove('active');
-        };
+        
+        currentModalType = 'project'
         
     });
 
@@ -35,12 +34,38 @@ export function modal(){
         overlay.classList.add('active');
         taskForm();
 
-        submitButton.onclick = () => {
-            createTask(selectedIndex);
-            modalWindow.classList.remove('active');
-            overlay.classList.remove('active');
-        };
+        currentModalType = 'task';
         
+    });
+
+    submitButton.addEventListener("click", () => {
+        if (currentModalType == 'project') {
+            createProject();
+        } 
+        else if (currentModalType == 'task') {
+            if (modalWindow.dataset.editing === "true") {
+                // Edit mode
+                const selectedIndex = getSelectedProjectIndex();
+                const taskIndex = parseInt(modalWindow.dataset.taskIndex);
+                const task = allProjects[selectedIndex].getTodos()[taskIndex];
+
+                task.title = document.getElementById('task-title').value.trim();
+                task.description = document.getElementById('task-desc').value.trim();
+                task.dueDate = document.getElementById('task-due').value;
+                task.priority = document.getElementById('task-priority').value;
+
+                renderTaskList(allProjects[selectedIndex].getTodos());
+                console.log('Task updated:', task);
+            } else {
+                // Add mode
+                createTask();
+            }
+        }
+
+        modalWindow.classList.remove('active');
+        overlay.classList.remove('active');
+        modalWindow.dataset.editing = "";
+        modalWindow.dataset.taskIndex = "";
     });
 
   

@@ -1,0 +1,66 @@
+@import url(variables.css);
+
+#task-list{
+    display: flex;
+    gap: 0.75rem;
+}
+
+#task-list .task-item-header{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+#task-list .task-item-header button{
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#task-list .task-item-header button:hover{
+    border: 1px var(--accent-color);
+    box-shadow: 0 6px 12px rgba(49, 151, 149, 0.5);
+    transform: scale(1.1);
+}
+
+#task-list .task-item-header button:focus{
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+#task-list p{
+    color: var(--word-color);
+    opacity: 1;
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.task-item {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid var(--input-border);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+
+.task-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--word-color);
+    margin-bottom: 0.25rem;
+}
+
+
+.task-item p {
+    margin: 0.15rem 0;
+    font-size: 1rem;
+    color: var(--word-color);
+}
+
+
