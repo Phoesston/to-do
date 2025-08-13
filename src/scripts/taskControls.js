@@ -68,9 +68,29 @@ export function deleteTask(taskIndex){
 
 }
 
+export function toggleComplete(taskIndex) {
+    const selectedIndex = getSelectedProjectIndex();
+    const checkbox = document.querySelector(`.task-complete-checkbox[data-task-index="${taskIndex}"]`);
+    const taskItem = checkbox.closest(".task-item");
+    if (selectedIndex === null) return;
+
+    const task = allProjects[selectedIndex].getTodos()[taskIndex];
+    task.toggleComplete();
+    
+    if (task.completed) {
+        taskItem.classList.add("task-completed");
+    } else {
+        taskItem.classList.remove("task-completed");
+    }
+
+    console.log("task Completed?",task.getCompleted());
+}
+
 export function taskControlListeners(taskContainer) {
     const editButtons = taskContainer.querySelectorAll('.task-edit');
     const deleteButtons = taskContainer.querySelectorAll('.task-delete');
+    const completeCheckboxes = taskContainer.querySelectorAll('.task-complete-checkbox');
+
     
     editButtons.forEach(button => {
         button.addEventListener('click', (e) => {
@@ -87,4 +107,14 @@ export function taskControlListeners(taskContainer) {
             deleteTask(taskIndex);
         });
     });
+
+    completeCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+            e.stopPropagation();
+            const taskIndex = parseInt(checkbox.dataset.taskIndex);
+            toggleComplete(taskIndex);
+        });
+    });
+
 }
+

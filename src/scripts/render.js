@@ -10,6 +10,13 @@ export function getSelectedProjectIndex(){
     return selectedIndex;
 }
 
+export function toggleAddTaskButton(show) {
+    const addTaskButton = document.getElementById("add-task");
+    if (!addTaskButton) return;
+
+    addTaskButton.style.display = show ? "inline-block" : "none";
+}
+
 function handleProjectSelection(index, element) {
     const allItems = document.querySelectorAll('.project-item');
     const taskControls = document.getElementById('task-button-div');
@@ -21,6 +28,8 @@ function handleProjectSelection(index, element) {
         console.log('Project deselected');
 
         taskControls.classList.remove('active');
+
+        toggleAddTaskButton(false); 
     } else {
         // Deselect all first
         allItems.forEach(item => item.classList.remove('selected'));
@@ -33,6 +42,8 @@ function handleProjectSelection(index, element) {
         taskControls.classList.add('active');
 
         renderTaskList(allProjects[selectedIndex].getTodos());
+
+        toggleAddTaskButton(true); 
     }
 }
 
@@ -54,7 +65,7 @@ export function renderProjectList(){
 }
 
 // Temporary dummy data for style testing
-const todos = [
+/*const todos = [
     {
         title: "Test Task 1",
         description: "This is a sample description to test the layout and styles.",
@@ -84,8 +95,20 @@ const todos = [
         description: "",
         dueDate: "2025-08-20",
         priority: "Low"
+    },
+    {
+        title: "Test Task 6",
+        description: "Another example with different text length to check wrapping.",
+        dueDate: "",
+        priority: "Medium"
+    },
+    {
+        title: "Test Task 7",
+        description: "Another example with different text length to check wrapping.",
+        dueDate: "",
+        priority: "Medium"
     }
-];
+];*/
 
 
 export function renderTaskList(todos){
@@ -104,8 +127,12 @@ export function renderTaskList(todos){
 
         taskDiv.innerHTML = `
             <div class="task-item-header">
-                <h3>${todo.title}</h3>
 
+                <div class="task-item-header-title">
+                    <input type="checkbox" class="task-complete-checkbox"   data-task-index="${index}" ${todo.completed ? 'checked' : ''} />
+                    <h3>${todo.title}</h3>
+                </div>
+    
                 <div class="task-item-header-buttons">
                     <button class="task-edit" data-task-index="${index}"><img src="${editIcon}" alt="delete"></button>
                     <button class="task-delete" data-task-index="${index}"><img src="${trashIcon}" alt="delete"></button>
@@ -127,4 +154,4 @@ export function renderTaskList(todos){
 }
 
 //For testing styles
-renderTaskList(todos);
+//renderTaskList(todos);

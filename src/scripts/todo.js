@@ -7,6 +7,10 @@ export class Todo{
         this.completed = false;
     }
 
+    getCompleted(){
+        return this.completed;
+    }
+
     toggleComplete(){
         this.completed = !this.completed;
     }
