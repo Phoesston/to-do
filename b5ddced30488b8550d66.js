@@ -1,1 +1,0 @@
-import{modal}from"./modal";import"../styles/styles.css";import{initFilters}from"./filters";document.addEventListener("DOMContentLoaded",(()=>{initFilters(),modal()}));
